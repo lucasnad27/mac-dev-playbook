@@ -1,0 +1,32 @@
+---
+downloads: ~/.ansible-downloads/
+dev_directory: ~/dev/
+
+homebrew_installed_packages:
+  - autoenv
+  - pyenv
+  - pyenv-virtualenvwrapper
+  - numpy
+  - readline
+  - wget
+  - node
+  - brew-cask
+
+homebrew_taps:
+  - caskroom/cask
+  - homebrew/binary
+  - homebrew/dupes
+  - homebrew/versions
+  - homebrew/python
+
+homebrew_cask_apps:
+  - google-chrome
+  - dropbox
+  - vagrant
+  - virtualbox
+
+npm_packages:
+  - grunt
+  - nave
+  - grunt-cli
+  - bower

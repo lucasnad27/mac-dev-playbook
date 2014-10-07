@@ -1,12 +1,6 @@
 ---
-# Preferences.
-# TODO: Idempotence, and set it as the default.
-# - name: Add Terminal settings.
-#   shell: open templates/terminal/JJG-Term.terminal
+- name: Configure git user name
+  shell: "git config --global user.name \"{{ git_name }}\""
 
-# TODO: Configure Sublime Text (see templates/sublime/*).
-
-# TODO: Configure git (should this be in my .osx file, though?).
-# git config --global color.ui true
-# git config --global user.name "Jeff Geerling"
-# git config --global user.email "geerlingguy@mac.com"
+- name: Configure git user email
+  shell: "git config --global user.email \"{{ git_email }}\""

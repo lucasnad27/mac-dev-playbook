@@ -1,0 +1,4 @@
+---
+- name: Install global pyenv version
+  shell: "pyenv install 2.7.8 -s && pyenv global 2.7.8"
+  sudo: no

@@ -1,0 +1,21 @@
+---
+
+- name: Clone libphutil repo
+  git:
+    repo: git://github.com/facebook/libphutil.git
+    dest: "{{ dev_directory }}/libphputil"
+
+- name: Clone arcanist repo
+  git:
+    repo: git://github.com/facebook/arcanist.git
+    dest: "{{ dev_directory }}/arcanist"
+
+- name: Add DEV_HOME to PATH
+  lineinfile:
+    dest: ~/.bash_profile
+    line: "export PATH=$HOME/dev/arcanist/bin:$PATH"
+
+- name: Add DEV_HOME to PATH
+  lineinfile:
+    dest: ~/.bash_profile
+    line: "source $HOME/dev/arcanist/resources/shell/bash-completion"

@@ -1,0 +1,35 @@
+---
+- name: Creatre .bashrc file
+  file: path=~/.bashrc mode=644 state=touch
+  sudo: no
+
+- name: Source ~/.bashrc from bash_profile
+  shell: "cat templates/.bash_profile >> ~/.bash_profile"
+
+- name: Configure default editor
+  lineinfile:
+    dest: ~/.bash_profile
+    line: "export EDITOR=\"{{ editor }} -w\""
+    regexp: "^export EDITOR"
+    backrefs: yes
+
+- name: Configure default git editor
+  lineinfile:
+    dest: ~/.bash_profile
+    line: "export GIT_EDITOR=\"{{ editor }} -w\""
+    regexp: "^export GIT_EDITOR"
+    backrefs: yes
+
+- name: Comment out ruby and nginx appending to path
+  lineinfile:
+    dest: ~/.bash_profile
+    line: "# export PATH=$PATH:~/.gem/ruby/1.8/bin:/opt/nginx/sbin"
+    regexp: "~/.gem/ruby/"
+    backrefs: yes
+
+- name: Comment out loading of RVM
+  lineinfile:
+    dest: ~/.bash_profile
+    line: "# [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm"
+    regexp: ".rvm/scripts/rvm"
+    backrefs: yes
